@@ -176,9 +176,7 @@ class ParticleSystem {
 document.addEventListener("DOMContentLoaded", () => {
   const particleSystem = new ParticleSystem();
 
-  document.body.style.opacity = "0";
-  document.body.style.transition = "opacity 1s ease-in-out";
-
+  // Fade in
   setTimeout(() => {
     document.body.style.opacity = "1";
   }, 100);

@@ -6,11 +6,12 @@
 
 body {
   font-family: "Bitcount Prop Single", sans-serif;
-  font-optical-sizing: auto;
   height: 100vh;
   overflow: hidden;
   position: relative;
   background: #0a0a0a;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 .background-animation {
