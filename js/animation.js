@@ -109,7 +109,10 @@ class ParticleSystem {
       // click-spawned particles die after a bit
       if (particle.life !== undefined) {
         particle.life--;
-        particle.opacity = (particle.life / particle.maxLife) * 0.8;
+
+        // Ease out fade: opacity decreases faster near the end
+        const t = particle.life / particle.maxLife;
+        particle.opacity = (1 - Math.pow(1 - t, 2)) * 0.8;
 
         if (particle.life <= 0) {
           this.particles.splice(i, 1);
