@@ -72,7 +72,7 @@ class ParticleSystem {
 
   createRipple(x, y) {
     for (let i = 0; i < 5; i++) {
-      const angle = (Math.PI * 2 * i) / 5 + (Math.random() - 0.5) * 0.75;
+      const angle = (Math.PI * 2 * i) / 5 + (Math.random() - 0.5) * 1.5;
       const velocity = 2 + Math.random() * 2;
 
       this.particles.push({
