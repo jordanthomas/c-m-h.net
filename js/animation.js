@@ -74,6 +74,7 @@ class ParticleSystem {
     for (let i = 0; i < 5; i++) {
       const angle = (Math.PI * 2 * i) / 5 + (Math.random() - 0.5) * 3;
       const velocity = 1.5 + Math.random();
+      const life = 200 + Math.random() * 100;
 
       this.particles.push({
         x: x,
@@ -83,8 +84,8 @@ class ParticleSystem {
         size: Math.random() * 3 + 2,
         opacity: 0.8,
         color: this.getRandomColor(),
-        life: 200,
-        maxLife: 200,
+        life: life,
+        maxLife: life,
       });
     }
   }
