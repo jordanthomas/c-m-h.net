@@ -72,8 +72,8 @@ class ParticleSystem {
 
   createRipple(x, y) {
     for (let i = 0; i < 5; i++) {
-      const angle = (Math.PI * 2 * i) / 5 + (Math.random() - 0.5) * 1.5;
-      const velocity = 2 + Math.random() * 2;
+      const angle = (Math.PI * 2 * i) / 5 + (Math.random() - 0.5) * 3;
+      const velocity = 1.5 + Math.random();
 
       this.particles.push({
         x: x,
@@ -83,8 +83,8 @@ class ParticleSystem {
         size: Math.random() * 3 + 2,
         opacity: 0.8,
         color: this.getRandomColor(),
-        life: 90,
-        maxLife: 90,
+        life: 200,
+        maxLife: 200,
       });
     }
   }
@@ -110,8 +110,11 @@ class ParticleSystem {
       if (particle.life !== undefined) {
         particle.life--;
 
-        // Ease out fade: opacity decreases faster near the end
         const t = particle.life / particle.maxLife;
+        const ease = 1 - Math.pow(1 - t, 2) * 0.1;
+        particle.vx *= ease;
+        particle.vy *= ease;
+
         particle.opacity = (1 - Math.pow(1 - t, 2)) * 0.8;
 
         if (particle.life <= 0) {
